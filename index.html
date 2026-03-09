@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tushar Bhati | Project Management Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        
+        .glass-effect {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+        }
+        
+        .skill-tag {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 14px;
+            width: 14px;
+            height: 14px;
+            background: #3b82f6;
+            border-radius: 50%;
+            border: 3px solid #0f172a;
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .btn-primary {
+            background: #3b82f6;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            border: 1px solid #475569;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+
+        .profile-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #3b82f6;
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Navbar -->
+    <nav class="fixed w-full top-0 z-50 glass-effect border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <span class="text-xl font-bold text-white">TB</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition">Home</a>
+                        <a href="#about" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition">About</a>
+                        <a href="#projects" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition">Projects</a>
+                        <a href="#casestudy" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition">Case Study</a>
+                        <a href="#skills" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition">Skills</a>
+                        <a href="#resume" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition">Resume</a>
+                        <a href="#contact" class="btn-primary text-white px-4 py-2 rounded-md text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-effect border-t border-slate-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Home</a>
+                <a href="#about" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">About</a>
+                <a href="#projects" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Projects</a>
+                <a href="#casestudy" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Case Study</a>
+                <a href="#skills" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Skills</a>
+                <a href="#resume" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Resume</a>
+                <a href="#contact" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <!-- Profile Photo -->
+            <div class="mb-8">
+                <img src="https://kimi-web-img.moonshot.cn/img/www.shutterstock.com/2eb87c5df2134ecafbeb19864e98b1eb27a8c5b7.jpg" 
+                     alt="Tushar Bhati Profile Photo" 
+                     class="profile-photo mx-auto">
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight">
+                Tushar Bhati
+            </h1>
+            <p class="text-xl md:text-2xl text-blue-400 mb-6 font-medium">
+                Project Management | Product | Coordinator
+            </p>
+            <p class="text-gray-400 max-w-2xl mx-auto mb-8 text-lg leading-relaxed">
+                B.Tech Computer Science student interested in Project Management, Product Development, 
+                and Team Coordination. Experienced in task tracking, documentation, Agile workflow, 
+                and working with developers.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#projects" class="btn-primary text-white px-8 py-3 rounded-md font-medium inline-flex items-center justify-center gap-2">
+                    <span>View Projects</span>
+                    <i class="fas fa-arrow-down text-sm"></i>
+                </a>
+                <a href="#resume" class="btn-secondary text-gray-300 px-8 py-3 rounded-md font-medium inline-flex items-center justify-center gap-2">
+                    <span>Download Resume</span>
+                    <i class="fas fa-download text-sm"></i>
+                </a>
+                <a href="#contact" class="btn-secondary text-gray-300 px-8 py-3 rounded-md font-medium inline-flex items-center justify-center gap-2">
+                    <span>Contact</span>
+                    <i class="fas fa-envelope text-sm"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold text-white mb-8 text-center">About Me</h2>
+                <div class="space-y-6 text-gray-400 text-lg leading-relaxed">
+                    <p>
+                        I am a Computer Science (IoT) student with strong interest in Project Management 
+                        and Product Development.
+                    </p>
+                    <p>
+                        I enjoy planning projects, coordinating teams, tracking tasks using Jira and Trello, 
+                        and ensuring timely delivery.
+                    </p>
+                    <p>
+                        I have experience working with designers and developers, handling documentation, 
+                        workflow tracking, and requirement understanding.
+                    </p>
+                </div>
+                <div class="mt-8 flex flex-wrap gap-4 justify-center">
+                    <div class="flex items-center gap-2 text-gray-400">
+                        <i class="fas fa-map-marker-alt text-blue-400"></i>
+                        <span>Ghaziabad, India</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-400">
+                        <i class="fas fa-graduation-cap text-blue-400"></i>
+                        <span>B.Tech Computer Science (IoT)</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-400">
+                        <i class="fas fa-university text-blue-400"></i>
+                        <span>ABES Institute of Technology</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-12 text-center">Projects</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                    <div class="mb-4">
+                        <span class="text-blue-400 text-sm font-medium">Self Project</span>
+                        <h3 class="text-xl font-bold text-white mt-2">PM Internship Simulation</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                        Simulated a project management internship by planning and tracking tasks for a sample web application.
+                    </p>
+                    <div class="mb-4">
+                        <p class="text-xs text-gray-500 uppercase tracking-wider mb-2">Key Activities</p>
+                        <ul class="text-sm text-gray-400 space-y-1">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-blue-400 text-xs mt-1"></i>
+                                <span>Task planning and board creation</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-blue-400 text-xs mt-1"></i>
+                                <span>Jira tracking and sprint updates</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-blue-400 text-xs mt-1"></i>
+                                <span>Documentation and coordination</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-xs text-gray-500 uppercase tracking-wider mb-2">Tools Used</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-slate-700 text-xs text-gray-300 rounded">Jira</span>
+                            <span class="px-2 py-1 bg-slate-700 text-xs text-gray-300 rounded">Trello</span>
+                            <span class="px-2 py-1 bg-slate-700 text-xs text-gray-300 rounded">Notion</span>
+                            <span class="px-2 py-1 bg-slate-700 text-xs text-gray-300 rounded">Figma</span>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-slate-700">
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">Role: <span class="text-white">Project Manager</span></span>
+                            <span class="text-green-400 text-xs">Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                    <div class="mb-4">
+                        <span class="text-blue-400 text-sm font-medium">Academic Project</span>
+                        <h3 class="text-xl font-bold text-white mt-2">IoT Device Monitoring System</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                        Managed complete project workflow from planning to testing phase for IoT device monitoring solution.
+                    </p>
+                    <div class="mb-4">
+                        <p class="text-xs text-gray-500 uppercase tracking-wider mb-2">Key Activities</p>
+                        <ul class="text-sm text-gray-400 space-y-1">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-blue-400 text-xs mt-1"></i>
+                                <span>Workflow tracking and management</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-blue-400 text-xs mt-1"></i>
+                                <span>Hardware and software coordination</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-blue-400 text-xs mt-1"></i>
+                                <span>System documentation and testing</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-xs text-gray-500 uppercase tracking-wider mb-2">Tools Used</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-slate-700 text-xs text-gray-300 rounded">Documentation</span>
+                            <span class="px-2 py-1 bg-slate-700 text-xs text-gray-300 rounded">Testing</span>
+                            <span class="px-2 py-1 bg-slate-700 text-xs text-gray-300 rounded">IoT</span>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-slate-700">
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">Role: <span class="text-white">Coordinator</span></span>
+                            <span class="text-green-400 text-xs">Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                    <div class="mb-4">
+                        <span class="text-blue-400 text-sm font-medium">Professional Experience</span>
+                        <h3 class="text-xl font-bold text-white mt-2">Website Development Coordination</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                        Coordinated with designers and developers to track tasks and ensure timely delivery at Liberin Technologies.
+                    </p>
+                    <div class="mb-4">
+                        <p class="text-xs text-gray-500 uppercase tracking-wider mb-2">Key Activities</p>
+                        <ul class="text-sm text-gray-400 space-y-1">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-blue-400 text-xs mt-1"></i>
+                                <span>Task division and assignment</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-blue-400 text-xs mt-1"></i>
+                                <span>Timeline tracking and monitoring</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-blue-400 text-xs mt-1"></i>
+                                <span>UI review and team coordination</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-xs text-gray-500 uppercase tracking-wider mb-2">Tools Used</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-slate-700 text-xs text-gray-300 rounded">Trello</span>
+                            <span class="px-2 py-1 bg-slate-700 text-xs text-gray-300 rounded">Figma</span>
+                            <span class="px-2 py-1 bg-slate-700 text-xs text-gray-300 rounded">Documentation</span>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-slate-700">
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">Role: <span class="text-white">Coordinator</span></span>
+                            <span class="text-blue-400 text-xs">Nov 2025 - Feb 2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section id="casestudy" class="py-20 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-12 text-center">Case Study</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-slate-800/50 rounded-lg p-8 border border-slate-700 mb-8">
+                    <h3 class="text-2xl font-bold text-white mb-2">Managing a Web Project</h3>
+                    <p class="text-gray-400">A detailed look at project coordination from initiation to delivery</p>
+                </div>
+
+                <!-- Timeline -->
+                <div class="relative pl-8 md:pl-12">
+                    <div class="timeline-line"></div>
+                    
+                    <!-- Problem -->
+                    <div class="relative mb-12">
+                        <div class="timeline-dot" style="top: 6px;"></div>
+                        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 ml-4">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
+                                    <i class="fas fa-exclamation text-red-400 text-sm"></i>
+                                </span>
+                                <h4 class="text-lg font-semibold text-white">Problem</h4>
+                            </div>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                A web application project lacked clear task tracking and coordination between design and development teams, 
+                                leading to missed deadlines and communication gaps. Requirements were not properly documented, 
+                                causing frequent scope changes.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Planning -->
+                    <div class="relative mb-12">
+                        <div class="timeline-dot" style="top: 6px;"></div>
+                        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 ml-4">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
+                                    <i class="fas fa-lightbulb text-blue-400 text-sm"></i>
+                                </span>
+                                <h4 class="text-lg font-semibold text-white">Planning</h4>
+                            </div>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                Conducted stakeholder meetings to gather requirements and created a comprehensive project roadmap. 
+                                Defined clear milestones, deliverables, and success metrics. Established communication protocols 
+                                and regular check-in schedules.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Task Division -->
+                    <div class="relative mb-12">
+                        <div class="timeline-dot" style="top: 6px;"></div>
+                        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 ml-4">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center">
+                                    <i class="fas fa-tasks text-purple-400 text-sm"></i>
+                                </span>
+                                <h4 class="text-lg font-semibold text-white">Task Division</h4>
+                            </div>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                Broke down the project into epics and user stories. Assigned tasks to team members based on expertise 
+                                and capacity. Created sprint cycles with clear deliverables and review points.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Tools Used -->
+                    <div class="relative mb-12">
+                        <div class="timeline-dot" style="top: 6px;"></div>
+                        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 ml-4">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
+                                    <i class="fas fa-tools text-green-400 text-sm"></i>
+                                </span>
+                                <h4 class="text-lg font-semibold text-white">Tools Used</h4>
+                            </div>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                <div class="text-center p-3 bg-slate-700/50 rounded">
+                                    <i class="fab fa-jira text-blue-400 mb-2"></i>
+                                    <p class="text-xs text-gray-300">Jira</p>
+                                </div>
+                                <div class="text-center p-3 bg-slate-700/50 rounded">
+                                    <i class="fab fa-trello text-blue-400 mb-2"></i>
+                                    <p class="text-xs text-gray-300">Trello</p>
+                                </div>
+                                <div class="text-center p-3 bg-slate-700/50 rounded">
+                                    <i class="fab fa-figma text-purple-400 mb-2"></i>
+                                    <p class="text-xs text-gray-300">Figma</p>
+                                </div>
+                                <div class="text-center p-3 bg-slate-700/50 rounded">
+                                    <i class="fab fa-github text-gray-300 mb-2"></i>
+                                    <p class="text-xs text-gray-300">GitHub</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Challenges -->
+                    <div class="relative mb-12">
+                        <div class="timeline-dot" style="top: 6px;"></div>
+                        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 ml-4">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center">
+                                    <i class="fas fa-mountain text-yellow-400 text-sm"></i>
+                                </span>
+                                <h4 class="text-lg font-semibold text-white">Challenges</h4>
+                            </div>
+                            <ul class="text-gray-400 text-sm space-y-2">
+                                <li class="flex items-start gap-2">
+                                    <i class="fas fa-chevron-right text-yellow-400 text-xs mt-1"></i>
+                                    <span>Frequent requirement changes from stakeholders</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fas fa-chevron-right text-yellow-400 text-xs mt-1"></i>
+                                    <span>Communication gaps between remote team members</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fas fa-chevron-right text-yellow-400 text-xs mt-1"></i>
+                                    <span>Tight deadlines with limited resources</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Solution -->
+                    <div class="relative mb-12">
+                        <div class="timeline-dot" style="top: 6px;"></div>
+                        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 ml-4">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center">
+                                    <i class="fas fa-check-circle text-cyan-400 text-sm"></i>
+                                </span>
+                                <h4 class="text-lg font-semibold text-white">Solution</h4>
+                            </div>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                Implemented Agile methodology with weekly sprints and daily stand-ups. Created detailed documentation 
+                                for requirements and change management. Set up automated workflows in Jira for task tracking and 
+                                established clear communication channels. Conducted regular retrospectives to improve processes.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Result -->
+                    <div class="relative">
+                        <div class="timeline-dot" style="top: 6px;"></div>
+                        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 ml-4">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
+                                    <i class="fas fa-trophy text-green-400 text-sm"></i>
+                                </span>
+                                <h4 class="text-lg font-semibold text-white">Result</h4>
+                            </div>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="text-center p-4 bg-slate-700/30 rounded">
+                                    <p class="text-2xl font-bold text-green-400">100%</p>
+                                    <p class="text-xs text-gray-400 mt-1">On-time Delivery</p>
+                                </div>
+                                <div class="text-center p-4 bg-slate-700/30 rounded">
+                                    <p class="text-2xl font-bold text-green-400">30%</p>
+                                    <p class="text-xs text-gray-400 mt-1">Efficiency Increase</p>
+                                </div>
+                                <div class="text-center p-4 bg-slate-700/30 rounded">
+                                    <p class="text-2xl font-bold text-green-400">Zero</p>
+                                    <p class="text-xs text-gray-400 mt-1">Major Blockers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-12 text-center">Skills</h2>
+            <div class="max-w-4xl mx-auto">
+                <!-- Project Management -->
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-gray-300 mb-4 flex items-center gap-2">
+                        <i class="fas fa-project-diagram text-blue-400"></i>
+                        Project Management
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-gray-300">Agile</span>
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-gray-300">Scrum</span>
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-gray-300">SDLC</span>
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-gray-300">Requirement Gathering</span>
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-gray-300">Documentation</span>
+                    </div>
+                </div>
+
+                <!-- Tools -->
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-gray-300 mb-4 flex items-center gap-2">
+                        <i class="fas fa-toolbox text-blue-400"></i>
+                        Tools
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-gray-300">Jira</span>
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-gray-300">Trello</span>
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-gray-300">Notion</span>
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-gray-300">GitHub</span>
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-gray-300">Figma</span>
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-gray-300">Postman</span>
+                    </div>
+                </div>
+
+                <!-- Technical -->
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-gray-300 mb-4 flex items-center gap-2">
+                        <i class="fas fa-code text-blue-400"></i>
+                        Technical
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-gray-300">Manual Testing</span>
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-gray-300">API Testing</span>
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-gray-300">UI Review</span>
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-gray-300">Prototyping</span>
+                    </div>
+                </div>
+
+                <!-- Languages -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-300 mb-4 flex items-center gap-2">
+                        <i class="fas fa-language text-blue-400"></i>
+                        Languages
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-gray-300">Python</span>
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-gray-300">HTML</span>
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-gray-300">CSS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="py-20 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-white mb-8">Resume</h2>
+            <p class="text-gray-400 mb-8 max-w-xl mx-auto">
+                Download my complete resume to view detailed information about my experience, 
+                education, and certifications.
+            </p>
+            <a href="/mnt/kimi/upload/Resume.pdf" download class="btn-primary text-white px-8 py-4 rounded-md font-medium inline-flex items-center gap-3 text-lg">
+                <i class="fas fa-download"></i>
+                <span>Download Resume</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-12 text-center">Contact</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <a href="mailto:tusharbhati0644@gmail.com" class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 text-center hover:border-blue-400 transition group">
+                        <div class="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-500/30 transition">
+                            <i class="fas fa-envelope text-blue-400 text-xl"></i>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-1">Email</p>
+                        <p class="text-white text-sm break-all">tusharbhati0644@gmail.com</p>
+                    </a>
+                    
+                    <a href="tel:+919560750644" class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 text-center hover:border-blue-400 transition group">
+                        <div class="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-500/30 transition">
+                            <i class="fas fa-phone text-blue-400 text-xl"></i>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-1">Phone</p>
+                        <p class="text-white">+91 9560750644</p>
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/tushar-bhati-345915250/" target="_blank" class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 text-center hover:border-blue-400 transition group">
+                        <div class="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-500/30 transition">
+                            <i class="fab fa-linkedin text-blue-400 text-xl"></i>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-1">LinkedIn</p>
+                        <p class="text-white text-sm">Tushar Bhati</p>
+                    </a>
+                </div>
+                
+                <div class="bg-slate-800/30 rounded-lg p-8 border border-slate-700 text-center">
+                    <p class="text-gray-300 text-lg mb-2">Open to opportunities</p>
+                    <p class="text-gray-400">
+                        Project Management, Product, and Coordinator roles
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-500 text-sm">
+                © 2026 Tushar Bhati. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
